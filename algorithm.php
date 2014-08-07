@@ -1,23 +1,15 @@
 <?php
 
-set_time_limit(30000);
+define('HEIGHT', 500);
+define('WIDTH' , 1000);
 
-$x = 500;
-$y = 500;
+$gd = imagecreatetruecolor(WIDTH, HEIGHT);
 
-$gd = imagecreatetruecolor($x, $y);
-
-$color = rand(0, 255);
-
-for ($i = 0; $i < 500; $i++) {
-  for ($b = 0; $b < 500; $b++) {
-		for ($a = 0; $a < 500; $a++) {
-  			imagesetpixel($gd, round($b),round($a), imagecolorallocate($gd, rand(0, 255), rand(0, 255), rand(0, 255)));
-		}
-  	}
+for ($b = 0; $b < WIDTH; $b++) {
+	for ($a = 0; $a < HEIGHT; $a++) {
+		imagesetpixel($gd, $b, $a, imagecolorallocate($gd, rand(0, 255), rand(0, 255), rand(0, 255)));
+	}
 }
- 
+
 header('Content-Type: image/png');
 imagepng($gd);
-
-?>
