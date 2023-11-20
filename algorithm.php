@@ -20,4 +20,6 @@ for ($i = 0; $i < 500; $i++) {
 header('Content-Type: image/png');
 imagepng($gd);
 
+
+
 ?>
